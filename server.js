@@ -4,9 +4,12 @@ const app =express();
  const db = require('./db'); 
 const bodyParser =require('body-parser')
 
+require('dotenv').config();
+
 
 
 app.use(bodyParser.json()); ////req.body me store kr dega
+const PORT = process.env.PORT || 3000
 
 //Api
 // app.get('/',(req,res)=>{
@@ -30,6 +33,8 @@ const menuroutes = require('./routes/menuRoutes')
 app.use('/menu',menuroutes)
 
 
-app.listen(3000,()=>{
+
+
+app.listen(PORT,()=>{
     console.log("your server is running")
 })
